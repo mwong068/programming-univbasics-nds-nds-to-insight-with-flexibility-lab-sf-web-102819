@@ -77,6 +77,7 @@ def gross_per_studio(collection)
   collection.each do |movie|
  puts movie
  end
+ end
 
 def movies_with_directors_set(source)
   # GOAL: For each director, find their :movies Array and stick it in a new Array
