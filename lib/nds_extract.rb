@@ -75,14 +75,8 @@ def gross_per_studio(collection)
   
   totals = {}
   collection.each do |movie|
-    if totals[movie[:studio]]
-      totals[movie[:studio]] += movie[:worldwide_gross]
-    else
-      totals[movie[:studio]] = movie[:worldwide_gross]
-    end #if
-  end #each
-  totals
-end
+ puts movie
+ end
 
 def movies_with_directors_set(source)
   # GOAL: For each director, find their :movies Array and stick it in a new Array
