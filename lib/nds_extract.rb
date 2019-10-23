@@ -73,13 +73,14 @@ def gross_per_studio(collection)
   # Hash whose keys are the studio names and whose values are the sum
   # total of all the worldwide_gross numbers for every movie in the input Hash
   
-  totals = {}
+  gross = {}
   collection.each do |movie|
-   if totals[movie[:studio]] != nil
-      totals[movie[:studio]] += movie[:worldwide_gross]
+   if gross[movie[:studio]] != nil
+      gross[movie[:studio]] += movie[:worldwide_gross]
    else
-      totals[movie[:studio]] = movie[:worldwide_gross]
- end
+      gross[movie[:studio]] = movie[:worldwide_gross]
+   end
+  end
  end
 
 def movies_with_directors_set(source)
