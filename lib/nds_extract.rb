@@ -48,7 +48,16 @@ def movies_with_director_key(name, movies_collection)
   # Array of Hashes where each Hash represents a movie; however, they should all have a
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
+  
+  results = []
+  i = 0 
+  while i < movies_collection.length do 
+    results.push(movie_with_director_name(name, movies_collection[i]))
+  i += 1 
+  end
+  results
 end
+ 
 
 
 def gross_per_studio(collection)
@@ -63,7 +72,17 @@ def gross_per_studio(collection)
   #
   # Hash whose keys are the studio names and whose values are the sum
   # total of all the worldwide_gross numbers for every movie in the input Hash
-end
+  
+  gross = {}
+  collection.each do |movie|
+   if gross[movie[:studio]] != nil
+      gross[movie[:studio]] += movie[:worldwide_gross]
+   else
+      gross[movie[:studio]] = movie[:worldwide_gross]
+   end
+  end
+  gross
+ end
 
 def movies_with_directors_set(source)
   # GOAL: For each director, find their :movies Array and stick it in a new Array
@@ -76,6 +95,13 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
+  
+   results = []
+   source.each do |movies_movies|
+    movies_and_director = movies_with_director_key(movies_movies[:name], movies_movies[:movies])
+    results.push(movies_and_director)
+   end
+  results
 end
 
 # ----------------    End of Your Code Region --------------------
