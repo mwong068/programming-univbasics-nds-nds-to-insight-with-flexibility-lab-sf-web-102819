@@ -75,7 +75,7 @@ def gross_per_studio(collection)
   
   totals = {}
   collection.each do |movie|
- puts movie
+ pp movie
  end
  end
 
